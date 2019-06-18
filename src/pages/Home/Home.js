@@ -5,8 +5,7 @@ import Bind from 'lodash-decorators/bind';
 import Debounce from 'lodash-decorators/debounce';
 
 import styles from './Home.less';
-import { Cascader, Upload, message, Button, Icon, DatePicker, Select, Form, Spin, Alert, Input, Modal,
-  Pagination, Table, Divider } from 'antd';
+import { Cascader, Upload, message, Button, Icon, DatePicker, Select, Form, Spin, Input, Divider } from 'antd';
 
 import PercentageItem from '@/components/PercentageItem';
 import HistoryModal from '@/components/HistoryModal/index';
@@ -41,9 +40,9 @@ class Home extends Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="javascript:;" onClick={(e) => this.download(record)}>下载</a>
+          <a href="javascript:;" onClick={() => this.download(record)}>下载</a>
           <Divider type="vertical" />
-          <a href="javascript:;" onClick={(e) => this.delItem(record)}>删除</a>
+          <a href="javascript:;" onClick={() => this.delItem(record)}>删除</a>
         </span>
       ),
     },
@@ -74,17 +73,6 @@ class Home extends Component {
       ],
       showHistoryModal: false,
       importPeople: null,
-
-      startTime: null,
-      endTime: null,
-      searchField: null,
-      pagination: {
-        showTotal: total => `共${total}条`,
-        showSizeChanger: true,
-        showQuickJumper: true,
-        pageSize: 10,
-        current: 1,
-      },
     };
   }
 
@@ -92,7 +80,7 @@ class Home extends Component {
     this.getCities();
   }
 
-  checkCity = () => {
+  validateRequire = () => {
     const { city, importPeople } = this.state
     if (!importPeople) {
       message.warn('请填写导入人')
@@ -291,25 +279,29 @@ class Home extends Component {
     return true
   }
 
+  getQueryList = () => {
+    const { arr, reportVersion } = this.state
+    const list = arr.map(it => {
+      return {
+        checkTime: moment(it.date).format('YYYY-MM-DD'),
+        proportion: it.percentage
+      }
+    })
+    return {
+      checkReportRequestList: list,
+      reportVersion
+    }
+  }
+
   toReport = () => {
     if (this.validate()) {
       this.setState({
         loading: true
       })
       const { dispatch } = this.props;
-      const { arr, reportVersion } = this.state
-      const list = arr.map(it => {
-        return {
-          checkTime: moment(it.date).format('YYYY-MM-DD'),
-          proportion: it.percentage
-        }
-      })
       dispatch({
         type: 'home/generateReport',
-        payload: {
-          checkReportRequestList: list,
-          reportVersion
-        },
+        payload: this.getQueryList(),
       }).then(res => {
         if (res.code === 'A00000') {
           message.success('已生成报告')
@@ -416,7 +408,6 @@ class Home extends Component {
     const { 
       cities, 
       historyList,
-      form: { getFieldDecorator },
     } = this.props
     const { 
       fileList, 
@@ -463,8 +454,8 @@ class Home extends Component {
                   />
                 </div>
                 <div style={{position: 'relative', width: 225}}>
-                  <Upload disabled={city === undefined || importPeople === ''} fileList={fileList} onChange={this.changeFile} onRemove={this.removeFile} {...uploadProps}>
-                    <Button onClick={() => this.checkCity()}>
+                  <Upload disabled={city === undefined || importPeople === null} fileList={fileList} onChange={this.changeFile} onRemove={this.removeFile} {...uploadProps}>
+                    <Button onClick={() => this.validateRequire()}>
                       <Icon type="upload" /> 上传文件
                     </Button>
                   </Upload>
@@ -491,7 +482,7 @@ class Home extends Component {
                     showAdd={arr.length - 1 === index}
                     onlyOne={arr.length === 1}
                     key={index.toString()}
-                  ></PercentageItem>
+                  />
                 )
               })
             }
@@ -499,7 +490,6 @@ class Home extends Component {
               <div style={{marginTop: 20, marginRight: 20}}>
                 <Button onClick={() => this.showHistory()} type="primary">历史报告</Button>
               </div>
-              
               <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end', marginTop: 20}}>
                 {
                   hasGenerate ? (
@@ -515,7 +505,7 @@ class Home extends Component {
         <HistoryModal 
           showHistoryModal={showHistoryModal}
           toggleModal={() => this.toggleHistoryModal()}
-        ></HistoryModal>
+        />
       </Spin>
     );
   }
