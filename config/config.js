@@ -67,7 +67,6 @@ export default {
   proxy: {
     '/api': {
       target: 'http://test1.report.ely.work/',
-      // target: 'http://172.31.98.66:8183',
       changeOrigin: true,
     },
   },
