@@ -22,13 +22,17 @@
 
 - Mock数据
 
-v上传下载Excel
+- 上传下载Excel
 
 #### 项目启动
 
+```bash
+$ git clone git@github.com:zhangyuanliang/react-demo.git
+$ cd react-demo
+$ npm install
+$ npm run start
 ```
-npm run start
+
+浏览器访问
 
 http://localhost:8000/
-
-```
