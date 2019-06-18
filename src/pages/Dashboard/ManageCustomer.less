@@ -1,0 +1,105 @@
+.mar {
+  margin-right: 26px;
+}
+
+.selectWidth {
+  width: 181px !important;
+  margin-right: 16px;
+}
+
+.inputWidth {
+  width: 232px !important;
+  margin-right: 16px;
+}
+
+.plusImg {
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  color: #202020;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 32px;
+  > i {
+    margin-right: 5px;
+  }
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.rArrow {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 4px;
+    right: -11px;
+    display: inline-block;
+    content: '';
+    width: 6px;
+    height: 11px;
+    background: url('../../assets/images/right-arrow@2x.png') no-repeat;
+    background-size: 100% 100%;
+  }
+  &:hover {
+    color: #e02c2d !important;
+  }
+}
+
+.upArrow {
+  position: relative;
+  color: #e02c2d;
+  &::after {
+    position: absolute;
+    top: 6px;
+    right: -14px;
+    display: inline-block;
+    content: '';
+    width: 11px;
+    height: 6px;
+    background: url('../../assets/images/up-arrow@2x.png') no-repeat;
+    background-size: 100% 100%;
+  }
+  &:hover {
+    color: #e02c2d !important;
+  }
+}
+
+.flexV {
+  display: flex;
+  align-items: center;
+}
+
+.bindAccount {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.bindBtn {
+  width: 88px;
+  height: 25px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  font-size: 15px;
+  background: linear-gradient(312deg, rgba(229, 38, 36, 1) 0%, rgba(253, 133, 103, 1) 100%);
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.hoverCss {
+  &:hover {
+    color: #e02c2d !important;
+  }
+}

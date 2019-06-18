@@ -1,0 +1,103 @@
+@import '~antd/lib/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/** 自定义主题相关css */
+.ant-table-thead > tr {
+  background: #f5d5d5 !important;
+}
+
+.ant-menu-item-selected {
+  width: 140px;
+  height: 32px;
+  background: linear-gradient(312deg, rgba(229, 38, 36, 1) 0%, rgba(253, 133, 103, 1) 100%);
+  border-radius: 0 3px 3px 0;
+  > a {
+    color: #fff !important;
+  }
+}
+
+.ant-page-header-footer {
+  padding: 0 !important;
+}
+
+.ant-table-row-expand-icon {
+  display: none !important;
+}
+
+.ant-table-expand-icon-th,
+.ant-table-row-expand-icon-cell {
+  box-sizing: border-box !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+.ant-table-expanded-row > td:first-child {
+  padding: 0 !important;
+}
+
+.ant-table-expanded-row .ant-card {
+  margin-top: -6px !important;
+  // margin-left: -32px !important;
+}
+
+.ant-table-fixed-left {
+  box-shadow: 6px 0 6px -4px rgba(0, 0, 0, 0.15) !important;
+}
+
+a {
+  color: @text-color;
+  &:hover {
+    color: @primary-color;
+  }
+}
