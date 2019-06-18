@@ -3,20 +3,16 @@
 
 #### 技术栈
 
-ReactAnt
-
-Design/Ant
-
-Design Pro
-
-dva
-
-umi
+> ReactAnt
+> Design/Ant
+> Design Pro
+> dva
+> umi
 
 #### 展示效果
 
-![Image text](https://github.com/zhangyuanliang/react-demo/blob/master/printscreen/1.png)
-![Image text](https://github.com/zhangyuanliang/react-demo/blob/master/printscreen/2.png)
+![Image text](https://github.com/zhangyuanliang/react-demo/blob/master/printscreen/1.jpg)
+![Image text](https://github.com/zhangyuanliang/react-demo/blob/master/printscreen/2.jpg)
 
 #### 主要功能
 
