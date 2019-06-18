@@ -3,11 +3,11 @@
 
 #### 技术栈
 
-> ReactAnt
-> Design/Ant
-> Design Pro
-> dva
-> umi
+- ReactAnt
+- Design
+- Ant Design Pro
+- dva
+- umi
 
 #### 展示效果
 
@@ -16,16 +16,19 @@
 
 #### 主要功能
 
-React组件封装，数据通讯，路由配置
+- React组件封装，数据通讯，路由配置
 
-Request拦截封装
+- Request拦截封装
 
-Mock数据
+- Mock数据
 
-上传下载Excel
+v上传下载Excel
 
 #### 项目启动
 
+```
 npm run start
 
 http://localhost:8000/
+
+```
